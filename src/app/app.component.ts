@@ -12,5 +12,6 @@ export class AppComponent implements OnInit {
   constructor(private azureRestApiService: AzureRestApiService) { }
   
   ngOnInit(): void {
+    this.azureRestApiService.getCurrentLoadAverage("VMS-Prod").subscribe((data) => this.loadAverage = data)
   }  
 }
