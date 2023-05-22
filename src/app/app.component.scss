@@ -32,12 +32,37 @@ abbr,acronym { border:0;}
 
 // end of normlize
 
-.sidenav{
-    float: left;
-    position: absolute;
+body{
+    background-color: #FDF5DF;
+}
+html{
+    background-color: #FDF5DF;
+}
+
+header{
+    text-align: center;
+    font-size: 50px;
+    background-color: #FDF5DF;
+    font-weight: bold;
+    border: 1px solid black;
 }
 
 .ostatne{
     float: right;
     position: relative;
+    margin-right: 20px;
+    text-align: center;
+}
+.row{
+    max-height: 100%;
+    font-size: 25px;
+    border: 1px solid black;
+}
+.col-sm-3{
+    padding: 20px;
+    background-color: #5EBEC4;
+    height: 681px;
+    border: 1px solid black;
+    border-top: none;
+    text-align: center;
 }
