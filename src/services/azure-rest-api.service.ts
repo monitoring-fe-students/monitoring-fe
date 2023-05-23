@@ -16,6 +16,7 @@ export class AzureRestApiService {
     }
 
     console.log("jjj");
+    console.log(this.mockValues);
     
     this.mockValues[Instance.CSMSProduction][Metric.CPULoad] = [0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 1.2, 0.4, 0.5, 0.6, 2.6];
     this.mockValues[Instance.CSMSProduction][Metric.HDD1RemainingMB] = [1000, 900, 920, 930, 800, 700, 500, 100, 300, 100, 20];
