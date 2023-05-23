@@ -14,12 +14,12 @@ export class AzureRestApiService {
         this.mockValues[instance] = {};
       }
     }
-    
+
     this.mockValues[Instance.CSMSProduction][Metric.CPULoad] = [0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 1.2, 0.4, 0.5, 0.6, 2.6];
     this.mockValues[Instance.CSMSProduction][Metric.HDD1RemainingMB] = [1000, 900, 920, 930, 800, 700, 500, 100, 300, 100, 20];
     this.mockValues[Instance.CSMSProduction][Metric.HDD2RemainingMB] = [2000, 1900, 1920, 1930, 1800, 900, 700, 300, 400, 100, 70];
     this.mockValues[Instance.CSMSProduction][Metric.RAMRemainingMB] = [5000, 4000, 3000, 3330, 2000, 1800, 1200, 1000, 700, 100, 20];
-
+    
     this.mockValues[Instance.VMSProduction][Metric.CPULoad] = [1.1, 1.2, 1.3, 1.5, 1.7, 1.8, 2.2, 1.4, 1.5, 1.6, 3.6];
     this.mockValues[Instance.VMSProduction][Metric.HDD1RemainingMB] = [2000, 1900, 1920, 1930, 1800, 1700, 1500, 1100, 1300, 1100, 20];
     this.mockValues[Instance.VMSProduction][Metric.HDD2RemainingMB] = [3000, 2900, 2920, 2930, 2800, 1900, 1700, 1300, 1400, 1100, 70];
