@@ -9,13 +9,10 @@ export class AzureRestApiService {
   private mockValues: Record<string, Record<string, number[]>> = {};
 
   constructor() {
-    for (const instance in Instance) {
-      if (Instance.hasOwnProperty(instance)) {
-        this.mockValues[instance] = {};
-      }
+    for (const instance of Object.values(Instance)) {
+      this.mockValues[instance] = {};
     }
 
-    console.log("jjj");
     console.log(this.mockValues);
     
     this.mockValues[Instance.CSMSProduction][Metric.CPULoad] = [0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 1.2, 0.4, 0.5, 0.6, 2.6];
