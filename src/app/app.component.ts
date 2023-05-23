@@ -8,6 +8,8 @@ import { Instance, Metric } from './models/azure-rest-api.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  public instance = Instance;
+
   // CSMS Production
   public CPULoadCP: number = 0;
   public HDD1CP: number = 0;
@@ -32,7 +34,8 @@ export class AppComponent implements OnInit {
   public HDD1VQ: number = 0;
   public HDD2VQ: number = 0;
   public RAMVQ: number = 0;
-
+  
+  public CPULoad: number = 0;
 
   
   constructor(private azureRestApiService: AzureRestApiService) { }
@@ -61,6 +64,13 @@ export class AppComponent implements OnInit {
     this.azureRestApiService.getInstanceMetric(Instance.VMSQuality, Metric.HDD1RemainingMB).subscribe((data) => this.HDD1VQ = data)
     this.azureRestApiService.getInstanceMetric(Instance.VMSQuality, Metric.HDD1RemainingMB).subscribe((data) => this.HDD2VQ = data)
     this.azureRestApiService.getInstanceMetric(Instance.VMSQuality, Metric.HDD1RemainingMB).subscribe((data) => this.RAMVQ = data)
-  }  
+  }
+
+  public switchInstance(instance: Instance) {
+    this.azureRestApiService.getInstanceMetric(instance, Metric.CPULoad).subscribe((data) => this.CPULoad = data)
+    this.azureRestApiService.getInstanceMetric(instance, Metric.HDD1RemainingMB).subscribe((data) => this.CPULoad = data)
+    this.azureRestApiService.getInstanceMetric(instance, Metric.HDD2RemainingMB).subscribe((data) => this.CPULoad = data)
+    this.azureRestApiService.getInstanceMetric(instance, Metric.RAMRemainingMB).subscribe((data) => this.CPULoad = data)
+  }
 }
 
