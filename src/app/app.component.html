@@ -1,31 +1,31 @@
 <html>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-    <body>
+    <body (click)="switchInstance(instance.CSMSProduction)">
         <Header>SERVERY A INFO</Header>
         
         <div class="row">
             <div class="col-sm-3" style="background-color:rgb(215, 215, 215)">
               <ul>
                 <button (click)="switchInstance(instance.VMSProduction)">VMS Production</button>
-                <li><a href="app.component.html">CSMS Production</a></li>
-                <li><a href="app.component1.html">CSMS Quality</a></li>
-                <li><a href="app.component2.html">VMS Production</a></li>
-                <li><a href="app.component3.html">VMS Quality</a></li>
-
+                <br><br>
+                <button (click)="switchInstance(instance.CSMSProduction)">CSMS Production</button>
+                <br><br>
+                <button (click)="switchInstance(instance.VMSQuality)">VMS Quality</button>
+                <br><br>
+                <button (click)="switchInstance(instance.CSMSQuality)">CSMS Quality</button>
               </ul>
             </div>
             <div class="col-sm-9">
                 <div class="ostatne">
-                    CSMS Production
                     <br>
                     CPU Load {{ CPULoad }}
                     <br>
-                    HDD1 {{ HDD1CP }} 
+                    HDD1 {{ HDD1 }} 
                     <br>
-                    HDD2 {{ HDD2CP }}
+                    HDD2 {{ HDD2 }}
                     <br>
-                    RAM {{ RAMCP }}
+                    RAM {{ RAM }}
                 </div>
             </div>
         </div>
