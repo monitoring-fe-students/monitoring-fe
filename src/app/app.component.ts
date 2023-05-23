@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   public HDD2CP: number = 0;
   public RAMCP: number = 0;
 
+  
   // VMS Production
   public CPULoadVP: number = 0;
   public HDD1VP: number = 0;
