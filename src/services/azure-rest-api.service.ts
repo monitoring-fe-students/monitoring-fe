@@ -5,13 +5,19 @@ import { Instance, Metric } from 'src/app/models/azure-rest-api.model';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AzureRestApiService {
-  private mockValues: Record<string, Record<string, number[]>> = {};
+  public mockValues: Record<string, Record<string, number[]>> = {};
+    public instances: Instance[] = Object.values(Instance);
+    public metrics: Metric[] = Object.values(Metric);
+    public currentInstance!: Instance;
 
   constructor() {
     for (const instance of Object.values(Instance)) {
       this.mockValues[instance] = {};
     }
+
+
 
     console.log(this.mockValues);
     

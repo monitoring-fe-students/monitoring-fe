@@ -9,7 +9,7 @@ import { NgSwitchDefault } from '@angular/common';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public instance = Instance;
+  public instance = Object.values(Instance)
   
   public CPULoad: number = 0;
   public HDD1: number = 0;
@@ -17,10 +17,10 @@ export class AppComponent implements OnInit {
   public RAM: number = 0;
 
   
-  constructor(private azureRestApiService: AzureRestApiService) { }
+  constructor(public azureRestApiService: AzureRestApiService) { }
   
   ngOnInit(): void {
-      this.switchInstance(this.instance.CSMSProduction)
+      this.switchInstance(Instance.CSMSProduction)
 
   }
 

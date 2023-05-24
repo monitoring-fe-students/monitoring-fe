@@ -3,18 +3,14 @@
 
     <body>
         <Header>SERVERY A INFO</Header>
-        
         <div class="row">
             <div class="col-sm-3" style="background-color:rgb(215, 215, 215)">
-              <ul>
-                <button (click)="switchInstance(instance.VMSProduction)">VMS Production</button>
-                <br><br>
-                <button (click)="switchInstance(instance.CSMSProduction)">CSMS Production</button>
-                <br><br>
-                <button (click)="switchInstance(instance.VMSQuality)">VMS Quality</button>
-                <br><br>
-                <button (click)="switchInstance(instance.CSMSQuality)">CSMS Quality</button>
-              </ul>
+                <ul>
+                    <li *ngFor="let instances of instance">
+                        <button (click)="switchInstance(instance.{{instances}})" > {{ instances }} </button>
+                        <br>
+                    </li> 
+                </ul>
             </div>
             <div class="col-sm-9">
                 <div class="ostatne">
