@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   public instance = Object.values(Instance)
-  public subscription: Subscription;
+  public subscription: Subscription = new Subscription;
   public CPULoad: number = 0;
   public HDD1: number = 0;
   public HDD2: number = 0;
