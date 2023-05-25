@@ -21,8 +21,9 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
       this.switchInstance(Instance.CSMSProduction)
-
   }
+
+  
 
   public switchInstance(instance: Instance) {
     this.azureRestApiService.getInstanceMetric(instance, Metric.CPULoad).subscribe((data) => this.CPULoad = data)
