@@ -15,13 +15,30 @@
             <div class="col-sm-9">
                 <div class="ostatne">
                     <br>
-                    CPU Load {{ CPULoad }}
-                    <br>
-                    HDD1 {{ HDD1 }} 
-                    <br>
-                    HDD2 {{ HDD2 }}
-                    <br>
-                    RAM {{ RAM }}
+                    <div *ngIf="CPULoad > 2" style="color: red;">
+                        CPU Load {{ CPULoad }}
+                    </div>
+                    <div *ngIf="CPULoad < 2">
+                        CPU Load {{ CPULoad }}
+                    </div>
+                    <div *ngIf="HDD1 <= 100" style="color: red;">
+                        HDD1 {{ HDD1 }}
+                    </div>
+                    <div *ngIf="HDD1 > 100">
+                        HDD1 {{ HDD1 }}
+                    </div>
+                    <div *ngIf="HDD2 <= 100" style="color: red;">
+                        HDD2 {{ HDD2 }}
+                    </div>
+                    <div *ngIf="HDD2 > 100">
+                        HDD2 {{ HDD2 }}
+                    </div>
+                    <div *ngIf="RAM <= 100" style="color: red;">
+                        RAM {{ RAM }}
+                    </div>
+                    <div *ngIf="RAM > 100">
+                        RAM {{ RAM }}
+                    </div>
                 </div>
             </div>
         </div>
