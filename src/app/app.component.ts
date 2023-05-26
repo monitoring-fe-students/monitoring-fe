@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   public HDD1: number = 0;
   public HDD2: number = 0;
   public RAM: number = 0;
+  public metric = Object.values(Metric)
 
   
   constructor(public azureRestApiService: AzureRestApiService) { }
