@@ -31,5 +31,10 @@ export class AppComponent implements OnInit {
     this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.HDD1RemainingMB).subscribe((data) => this.currentValues.set(Metric.HDD1RemainingMB, data)));
     this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.HDD2RemainingMB).subscribe((data) => this.currentValues.set(Metric.HDD2RemainingMB, data)));
     this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.RAMRemainingMB).subscribe((data) => this.currentValues.set(Metric.RAMRemainingMB, data)));
+
+    this.limitValues.set(Metric.CPULoad, 2); 
+    this.limitValues.set(Metric.HDD1RemainingMB, 100); 
+    this.limitValues.set(Metric.HDD2RemainingMB, 100);
+    this.limitValues.set(Metric.RAMRemainingMB, 100); 
   }
 }
