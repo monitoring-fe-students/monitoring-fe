@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AzureRestApiService } from 'src/services/azure-rest-api.service';
 import { Instance, Metric } from './models/azure-rest-api.model';
-import { NgSwitchDefault } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,18 +12,13 @@ export class AppComponent implements OnInit {
   public instance = Object.values(Instance)
   public metric = Object.values(Metric)
   public subscription: Subscription = new Subscription;
-  public CPULoad: number = 0;
-  public HDD1: number = 0;
-  public HDD2: number = 0;
-  public RAM: number = 0;
+  public currentValues = new Map<Metric, { value: number, limit: number }>();
   
   constructor(public azureRestApiService: AzureRestApiService) { }
   
   ngOnInit(): void {
       this.switchInstance(Instance.CSMSProduction);
   }
-
-  
 
   public switchInstance(instance: Instance) {
     if (this.subscription) {
