@@ -12,7 +12,8 @@ export class AppComponent implements OnInit {
   public instance = Object.values(Instance)
   public metric = Object.values(Metric)
   public subscription: Subscription = new Subscription;
-  public currentValues = new Map<Metric, { value: number, limit: number }>();
+  public limitValues = new Map<Metric, number>();
+  public currentValues = new Map<Metric, number>();
   
   constructor(public azureRestApiService: AzureRestApiService) { }
   
