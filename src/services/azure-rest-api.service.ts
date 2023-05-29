@@ -11,12 +11,17 @@ export class AzureRestApiService {
     public instances: Instance[] = Object.values(Instance);
     public metrics: Metric[] = Object.values(Metric);
     public currentInstance!: Instance;
+    public currentMetric!: Metric;
 
   constructor() {
     for (const instance of Object.values(Instance)) {
       this.mockValues[instance] = {};
     }
 
+    
+    for (const metric of Object.values(Metric)) {
+      this.mockValues[metric] = {};
+    }
 
 
     console.log(this.mockValues);

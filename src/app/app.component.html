@@ -7,6 +7,7 @@
             <div class="col-sm-3" style="background-color:rgb(215, 215, 215)">
                 <ul>
                     <li *ngFor="let inst of instance">
+                        <br>
                         <button (click)="switchInstance(inst)" > {{ inst }} </button>
                         <br>
                     </li> 
@@ -17,7 +18,9 @@
                     <br>
                     <div *ngFor="let met of metric" [ngStyle]="{ 'color': CPULoad > 2 ? 'red' : HDD1 <= 100 ? 'red' : HDD2 <= 100 
                         ? 'red' : RAM <= 100 ? 'red' : 'black' }">
-                        {{ met }}
+                        
+                            {{ met }}
+                       
                       </div>
                 </div>
             </div>
