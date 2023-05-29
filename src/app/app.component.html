@@ -17,8 +17,7 @@
                 <div class="ostatne">
                     <br>
                     <div *ngFor="let met of metric" >
-                        <p [style.color]="met === metric.CPULoad ? (currentValues.get(met) ?? 0) > (limitValues.get(met) ?? 0) ? 'red' : 'black' : 
-                                            (currentValues.get(met) ?? 0) <= (limitValues.get(met) ?? 0) ? 'red' : 'black'">
+                        <p [style.color]="met | limitcolor : currentValues : limitValues">
 
                             {{ met }} {{ currentValues.get(met) }}
 

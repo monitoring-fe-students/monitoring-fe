@@ -12,6 +12,7 @@ import { __values } from 'tslib';
 export class AppComponent implements OnInit {
   public instance = Object.values(Instance)
   public metric = Object.values(Metric)
+  public metricenum = Metric
   public subscription: Subscription = new Subscription;
   public currentValues = new Map<Metric, number>();
   public limitValues = new Map<Metric, number>();

@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { LimitcolorPipe } from './pipes/limitcolor.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LimitcolorPipe
   ],
   imports: [
     BrowserModule,
