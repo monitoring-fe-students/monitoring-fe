@@ -32,8 +32,6 @@ abbr,acronym { border:0;}
 
 // end of normlize
 
-// [ngStyle]="{ 'color': CPULoad > 2 ? 'red' : HDD1 <= 100 ? 'red' : HDD2 <= 100 ? 'red' : RAM <= 100 ? 'red' : 'black' }"
-
 body{
     background-color: #FDF5DF;
 }
