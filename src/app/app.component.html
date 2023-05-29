@@ -16,12 +16,9 @@
             <div class="col-sm-9">
                 <div class="ostatne">
                     <br>
-                    <div *ngFor="let met of metric" [ngStyle]="{ 'color': CPULoad > 2 ? 'red' : HDD1 <= 100 ? 'red' : HDD2 <= 100 
-                        ? 'red' : RAM <= 100 ? 'red' : 'black' }">
-                        
-                            {{ met }}
-                       
-                      </div>
+                    <div *ngFor="let met of metric" >
+                            {{ met }} {{ currentValues.get(met) }}
+                      </div> 
                 </div>
             </div>
         </div>

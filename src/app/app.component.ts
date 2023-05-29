@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AzureRestApiService } from 'src/services/azure-rest-api.service';
 import { Instance, Metric } from './models/azure-rest-api.model';
 import { Subscription } from 'rxjs';
+import { __values } from 'tslib';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,8 @@ export class AppComponent implements OnInit {
   public instance = Object.values(Instance)
   public metric = Object.values(Metric)
   public subscription: Subscription = new Subscription;
-  public limitValues = new Map<Metric, number>();
   public currentValues = new Map<Metric, number>();
+  public limitValues = new Map<Metric, number>();
   
   constructor(public azureRestApiService: AzureRestApiService) { }
   
@@ -26,9 +27,9 @@ export class AppComponent implements OnInit {
       this.subscription.unsubscribe();
     }
 
-    this.subscription = this.azureRestApiService.getInstanceMetric(instance, Metric.CPULoad).subscribe((data) => this.CPULoad = data);
-    this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.HDD1RemainingMB).subscribe((data) => this.HDD1 = data));
-    this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.HDD2RemainingMB).subscribe((data) => this.HDD2 = data));
-    this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.RAMRemainingMB).subscribe((data) => this.RAM = data));
+    this.subscription = this.azureRestApiService.getInstanceMetric(instance, Metric.CPULoad).subscribe((data) => this.currentValues.set(Metric.CPULoad, data));
+    this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.HDD1RemainingMB).subscribe((data) => this.currentValues.set(Metric.HDD1RemainingMB, data)));
+    this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.HDD2RemainingMB).subscribe((data) => this.currentValues.set(Metric.HDD2RemainingMB, data)));
+    this.subscription.add(this.azureRestApiService.getInstanceMetric(instance, Metric.RAMRemainingMB).subscribe((data) => this.currentValues.set(Metric.RAMRemainingMB, data)));
   }
 }
