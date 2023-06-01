@@ -17,7 +17,6 @@ describe('LimitcolorPipe', () => {
   });
 
   it('1', () => {
-    const metric = 'CPULoad';
     const currentValues = new Map<Metric, number>();
     const limitValues = new Map<Metric, number>();
     limitValues.set(Metric.CPULoad, 1);
@@ -31,7 +30,6 @@ describe('LimitcolorPipe', () => {
   });
 
   it('2', () => {
-    const metric = 'CPULoad';
     const currentValues = new Map<Metric, number>();
     const limitValues = new Map<Metric, number>();
     limitValues.set(Metric.CPULoad, 5);
@@ -44,58 +42,41 @@ describe('LimitcolorPipe', () => {
     expect(result).toBe(color);
   });
 
-  it('3', () => {
-    const limitValues = new Map<Metric, number>([
-      [Metric.HDD1RemainingMB, 1000],
-      [Metric.HDD2RemainingMB, 1000],
-      [Metric.RAMRemainingMB, 1000],
-    ]);
-    const currentValues = new Map<Metric, number>([
-      [Metric.HDD1RemainingMB, 900],
-      [Metric.HDD2RemainingMB, 900],
-      [Metric.RAMRemainingMB, 900],
-    ]);
-    const color = 'red';
-    const pipe = new LimitcolorPipe();
+  [
+    Metric.HDD1RemainingMB,
+    Metric.HDD2RemainingMB,
+    Metric.RAMRemainingMB,
+  ].forEach((met) =>
+    it(`3 ${met}`, () => {
+      const limitValues = new Map<Metric, number>([
+        [Metric.HDD1RemainingMB, 1000],
+        [Metric.HDD2RemainingMB, 1000],
+        [Metric.RAMRemainingMB, 1000],
+      ]);
+      const currentValues = new Map<Metric, number>([
+        [Metric.HDD1RemainingMB, 900],
+        [Metric.HDD2RemainingMB, 900],
+        [Metric.RAMRemainingMB, 900],
+      ]);
+      const color = 'red';
+      const pipe = new LimitcolorPipe();
 
-    const result = pipe.transform(
-      Metric.HDD1RemainingMB,
-      currentValues,
-      limitValues
-    );
+      const result = pipe.transform(
+        met,
+        currentValues,
+        limitValues
+      );
 
-    expect(result).toBe(color);
-  });
-
-  it('4', () => {
-    const limitValues = new Map<Metric, number>([
-      [Metric.HDD1RemainingMB, 500],
-      [Metric.HDD2RemainingMB, 500],
-      [Metric.RAMRemainingMB, 500],
-    ]);
-    const currentValues = new Map<Metric, number>([
-      [Metric.HDD1RemainingMB, 1000],
-      [Metric.HDD2RemainingMB, 1000],
-      [Metric.RAMRemainingMB, 1000],
-    ]);
-    const color = 'black';
-    const pipe = new LimitcolorPipe();
-
-    const result = pipe.transform(
-      Metric.HDD1RemainingMB,
-      currentValues,
-      limitValues
-    );
-
-    expect(result).toBe(color);
-  });
+      expect(result).toBe(color);
+    })
+  );
 
   [
     Metric.HDD1RemainingMB,
     Metric.HDD2RemainingMB,
     Metric.RAMRemainingMB,
   ].forEach((met) =>
-    it(`test for ${met}`, () => {
+    it(`4 ${met}`, () => {
       const limitValues = new Map<Metric, number>([
         [Metric.HDD1RemainingMB, 500],
         [Metric.HDD2RemainingMB, 500],
@@ -110,7 +91,7 @@ describe('LimitcolorPipe', () => {
       const pipe = new LimitcolorPipe();
 
       const result = pipe.transform(
-        Metric.HDD1RemainingMB,
+        met,
         currentValues,
         limitValues
       );
