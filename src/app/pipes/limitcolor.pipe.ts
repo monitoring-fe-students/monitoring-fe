@@ -15,13 +15,13 @@ export class LimitcolorPipe implements PipeTransform {
       return 'red';
     } 
     else if (met === Metric.CPULoad && value < limit) {
-      return 'black';
+      return 'white';
     }
     else if (value < limit) {
       return 'red';
     } 
     else {
-      return 'black';
+      return 'white';
     }
   }
 }

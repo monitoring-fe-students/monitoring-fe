@@ -34,7 +34,7 @@ describe('LimitcolorPipe', () => {
     const limitValues = new Map<Metric, number>();
     limitValues.set(Metric.CPULoad, 5);
     currentValues.set(Metric.CPULoad, 1);
-    const color = 'black';
+    const color = 'white';
     const pipe = new LimitcolorPipe();
 
     const result = pipe.transform(Metric.CPULoad, currentValues, limitValues);
@@ -87,7 +87,7 @@ describe('LimitcolorPipe', () => {
         [Metric.HDD2RemainingMB, 1000],
         [Metric.RAMRemainingMB, 1000],
       ]);
-      const color = 'black';
+      const color = 'white';
       const pipe = new LimitcolorPipe();
 
       const result = pipe.transform(
