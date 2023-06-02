@@ -4,27 +4,20 @@
     <body>
         <Header>SERVERY A INFO</Header>
         <div class="row">
-            <div class="col-sm-3" style="background-color:rgb(215, 215, 215)">
-                <ul>
-                    <li *ngFor="let inst of instance">
-                        <br>
-                        <button (click)="switchInstance(inst)" > {{ inst }} </button>
-                        <br>
-                    </li> 
-                </ul>
-            </div>
-            <div class="col-sm-9">
-                <div class="ostatne">
-                    <br>
-                    <div *ngFor="let met of metric" >
-                        <p [style.color]="met | limitcolor : currentValues : limitValues">
-
-                            {{ met }} {{ currentValues.get(met) }}
-
-                        </p>
-                    </div> 
-                </div>
-            </div>
+            <nav>
+                <li *ngFor="let inst of instance">
+                    <button (click)="switchInstance(inst)" class="but" > {{ inst }} </button>
+                </li> 
+            </nav>
+        </div>
+        
+        <div class="ostatne">
+            <br>
+            <div *ngFor="let met of metric" >
+                <p [style.color]="met | limitcolor : currentValues : limitValues">
+                     {{ met }} {{ currentValues.get(met) }} 
+                    </p>
+            </div> 
         </div>
     </body>
 </html>
