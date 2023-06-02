@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AzureRestApiService } from 'src/services/azure-rest-api.service';
+import { AzureRestApiService } from 'src/app/services/azure-rest-api.service';
 import { Instance, Metric } from './models/azure-rest-api.model';
 import { Subscription } from 'rxjs';
 import { __values } from 'tslib';

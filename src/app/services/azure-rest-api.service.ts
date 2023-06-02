@@ -22,9 +22,6 @@ export class AzureRestApiService {
     for (const metric of Object.values(Metric)) {
       this.mockValues[metric] = {};
     }
-
-
-    console.log(this.mockValues);
     
     this.mockValues[Instance.CSMSProduction][Metric.CPULoad] = [0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 1.2, 0.4, 0.5, 0.6, 2.6];
     this.mockValues[Instance.CSMSProduction][Metric.HDD1RemainingMB] = [1000, 900, 920, 930, 800, 700, 500, 100, 300, 100, 20];
@@ -46,7 +43,6 @@ export class AzureRestApiService {
     this.mockValues[Instance.VMSQuality][Metric.HDD1RemainingMB] = [2003, 1903, 1923, 1933, 1803, 1703, 1503, 1103, 1303, 1103, 23];
     this.mockValues[Instance.VMSQuality][Metric.HDD2RemainingMB] = [3003, 2903, 2923, 2933, 2803, 1903, 1703, 1303, 1403, 1103, 73];
     this.mockValues[Instance.VMSQuality][Metric.RAMRemainingMB] = [5003, 4003, 3003, 3333, 2003, 1803, 1203, 1003, 703, 103, 23];
-
   }
 
   getInstanceMetric(instance: Instance, metric: Metric): Observable<number> {
